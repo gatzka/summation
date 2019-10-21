@@ -30,11 +30,10 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     $<INSTALL_INTERFACE:include/summation/>
 )
 
-target_compile_features(${PROJECT_NAME} PUBLIC $<$<NOT:$<C_COMPILER_ID:MSVC>>:c_std_11>)
-
 set_target_properties(${PROJECT_NAME} PROPERTIES
     VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}"
     SOVERSION ${PROJECT_VERSION_MAJOR}
+    C_STANDARD 90 
     C_STANDARD_REQUIRED ON
     C_EXTENSIONS OFF
     C_VISIBILITY_PRESET hidden
@@ -83,7 +82,7 @@ if (DOXYGEN_FOUND)
     set(DOXYGEN_HAVE_DOT NO)
     set(DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
     set(DOXYGEN_OUTPUT_DIRECTORY docs/)
-	set(DOXYGEN_PROJECT_BRIEF "Compensation floating point summation in ANSI C.")
+	set(DOXYGEN_PROJECT_BRIEF "Compensated floating point summation in ANSI C.")
 	set(DOXYGEN_PROJECT_NUMBER ${${PROJECT_NAME}_VERSION})
     set(DOXYGEN_QUIET YES)
     set(DOXYGEN_RECURSIVE NO)

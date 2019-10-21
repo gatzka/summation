@@ -44,9 +44,10 @@ double pairwise_sum(double in[], size_t length)
 
 double kahan_sum(double in[], size_t length)
 {
+	size_t i;
 	double sum = 0.0;
 	double c = 0.0;
-	for (size_t i = 0; i < length; ++i) {
+	for (i = 0; i < length; i++) {
 		double y = in[i] - c;
 		double t = sum + y;
 		c = (t - sum) - y;
