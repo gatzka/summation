@@ -26,31 +26,27 @@
  * SOFTWARE.
  */
 
-#ifndef SUMMATION_H
-#define SUMMATION_H
+#ifndef SUMMATION_VERSION_H
+#define SUMMATION_VERSION_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <stddef.h>
 #include "summation_export.h"
 
-/*
- * Pairwise summation algorithm as described here:
- * https://en.wikipedia.org/wiki/Pairwise_summation
+/**
+ * @file
+ * @brief This file contains version information.
  */
-SUMMATION_EXPORT double pairwise_sum(double in[], size_t length);
 
-/*
- * Kahan summation algorithm as described here:
- * https://en.wikipedia.org/wiki/Kahan_summation_algorithm
- */
-SUMMATION_EXPORT double kahan_sum(double in[], size_t length);
+SUMMATION_EXPORT const char *summation_get_version_string(void);
+SUMMATION_EXPORT unsigned int summation_get_version_major(void);
+SUMMATION_EXPORT unsigned int summation_get_version_minor(void);
+SUMMATION_EXPORT unsigned int summation_get_version_patch(void);
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-
