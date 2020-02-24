@@ -46,12 +46,12 @@ double kahan_sum(double in[], size_t length)
 {
 	size_t i;
 	double sum = 0.0;
-	double c = 0.0;
+	double correction = 0.0;
 	for (i = 0; i < length; i++) {
-		double y = in[i] - c;
-		double t = sum + y;
-		c = (t - sum) - y;
-		sum = t;
+		double y = in[i] - correction;
+		double tmp = sum + y;
+		correction = (tmp - sum) - y;
+		sum = tmp;
 	}
 
 	return sum;
